@@ -8,9 +8,6 @@ module Servactory
         SERVICES_PATH = Servactory::Web.configuration.app_services_directory
         private_constant :SERVICES_PATH
 
-        SERVICE_BASE_CLASS = Servactory::Web.configuration.app_services_class_base
-        private_constant :SERVICE_BASE_CLASS
-
         # Builds the complete service tree
         #
         # @return [Array<Hash>] Tree structure of services
@@ -182,9 +179,12 @@ module Servactory
         # @param class_name [String] Class name to check
         # @return [Boolean] True if it's a service class
         def service_class?(class_name)
-          klass = class_name.safe_constantize
-          klass && klass < SERVICE_BASE_CLASS
-        rescue NameError
+          service_class = class_name.safe_constantize
+          return false unless service_class.is_a?(Class)
+          return false unless service_class.respond_to?(:servactory?)
+
+          service_class.servactory?
+        rescue StandardError
           false
         end
       end
