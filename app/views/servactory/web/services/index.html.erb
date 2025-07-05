@@ -1,9 +1,7 @@
-<div class="max-w-5xl">
-  <%= render partial: 'servactory/web/shared/page_header', locals: { 
-    title: 'Services',
-    description: 'List of all services written using Servactory in the project'
-  } %>
-  <div class="border border-gray-200 rounded-lg bg-white shadow-sm p-4">
-    <%= render partial: 'servactory/web/services/service_tree', locals: { services_tree: @services_tree } %>
-  </div>
+<%= render partial: 'servactory/web/shared/page_header', locals: {
+  title: 'Services',
+  description: 'List of all services written using Servactory in the project'
+} %>
+<div class="border border-gray-200 rounded-lg bg-white shadow-sm p-4">
+  <%= render partial: 'servactory/web/services/service_tree', locals: { services_tree: @services_tree } %>
 </div>
