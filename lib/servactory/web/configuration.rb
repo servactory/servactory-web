@@ -25,6 +25,10 @@ module Servactory
         "https://github.com/servactory/servactory"
       end
 
+      def release_url_for(version)
+        "https://github.com/servactory/servactory/releases/tag/v#{version}"
+      end
+
       private
 
       def safe_constantize_from(value)
