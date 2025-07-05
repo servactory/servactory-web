@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     servactory-web (0.1.0)
-      rails (>= 7.0, < 8.1)
+      rails (>= 7.1, < 8.1)
       servactory (>= 2.16.0.rc1)
       zeitwerk (>= 2.6)
 

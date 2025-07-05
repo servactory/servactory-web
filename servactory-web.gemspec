@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
 
   spec.required_ruby_version = Gem::Requirement.new(">= 3.2")
 
-  spec.add_dependency "rails", ">= 7.0", "< 8.1"
+  spec.add_dependency "rails", ">= 7.1", "< 8.1"
   spec.add_dependency "servactory", ">= 2.16.0.rc1"
   spec.add_dependency "zeitwerk", ">= 2.6"
 
