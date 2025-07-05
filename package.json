@@ -1,0 +1,14 @@
+{
+  "name": "servactory-web",
+  "private": true,
+  "scripts": {
+    "css:build": "npx @tailwindcss/cli -i ./app/assets/stylesheets/servactory/web/source.tailwind.css -o ./app/assets/stylesheets/servactory/web/compiled.css --minify",
+    "css:watch": "npx @tailwindcss/cli -i ./app/assets/stylesheets/servactory/web/source.tailwind.css -o ./app/assets/stylesheets/servactory/web/compiled.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.11"
+  }
+}

@@ -1,0 +1,16 @@
+<header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+  <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="flex items-center gap-6">
+      <h1 class="text-2xl">
+        <%= link_to "Servactory", Servactory::Web::Engine.routes.url_helpers.services_path, class: "font-bold text-gray-900 hover:text-blue-600 transition-colors" %>
+      </h1>
+      <div class="h-6 w-px bg-gray-300"></div>
+      <span class="text-base font-medium text-gray-600">App name</span>
+    </div>
+    <nav class="hidden md:flex items-center gap-8">
+      <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Documentation</a>
+      <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">Examples</a>
+      <a href="#" class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors">GitHub</a>
+    </nav>
+  </div>
+</header> 

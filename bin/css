@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Building CSS for Servactory Web..."
+
+npm run css:build
+
+echo "CSS compiled successfully!"

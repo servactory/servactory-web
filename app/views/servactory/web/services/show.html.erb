@@ -1,0 +1,18 @@
+<div class="max-w-5xl">
+  <div class="mb-6">
+    <% if @service_class && @source_code %>
+      <h2 class="text-3xl font-bold mb-3 text-gray-900"><%= @service_class.name %></h2>
+      <p class="text-gray-600 text-base">List of all services written using Servactory in the project</p>
+    <% else %>
+      <h2 class="text-3xl font-bold mb-3 text-gray-900">Not Found Service</h2>
+      <p class="text-gray-600 text-base">List of all services written using Servactory in the project</p>
+    <% end %>
+  </div>
+  <div class="border border-gray-200 rounded-lg bg-white shadow-sm p-4">
+    <% if @service_class && @source_code %>
+      <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm font-mono text-gray-800"><code class="language-ruby"><%= html_escape(@source_code) %></code></pre>
+    <% else %>
+      <p class="text-gray-500">Сервис не найден или не удалось получить исходный код.</p>
+    <% end %>
+  </div>
+</div>
