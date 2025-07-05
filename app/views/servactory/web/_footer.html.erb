@@ -2,13 +2,13 @@
   <div class="container mx-auto px-4 py-6">
     <div class="flex items-center justify-between text-sm text-gray-600">
       <div class="flex items-center gap-6">
-        <span>© 2025 Servactory</span>
+        <span>© <%= Date.current.year %> Servactory</span>
         <div class="h-4 w-px bg-gray-300" aria-hidden="true"></div>
         <%= link_to "Documentation", Servactory::Web.configuration.documentation_url, class: "hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "Documentation" } %>
         <%= link_to "GitHub", Servactory::Web.configuration.github_url, class: "hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "GitHub repository" } %>
       </div>
       <div class="flex items-center gap-2">
-        <span class="font-mono text-xs bg-gray-200 text-gray-800 px-3 py-1 rounded-full" aria-label="Servactory version">Servactory <%= Servactory::VERSION::STRING %></span>
+        <%= link_to "Servactory #{Servactory::VERSION::STRING}", Servactory::Web.configuration.release_url_for(Servactory::VERSION::STRING), class: "font-mono text-xs bg-gray-200 text-gray-800 px-3 py-1 rounded-full", target: "_blank", rel: "nofollow", aria: { label: "Servactory release" } %>
       </div>
     </div>
   </div>
