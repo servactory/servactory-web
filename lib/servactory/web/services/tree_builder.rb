@@ -181,6 +181,7 @@ module Servactory
           klass = class_name.safe_constantize
           return false unless klass.is_a?(Class)
           return false unless klass.respond_to?(:servactory?)
+
           klass.servactory?
         rescue StandardError
           false
