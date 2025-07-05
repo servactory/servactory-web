@@ -1,15 +1,15 @@
-<header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm">
+<header class="border-b border-gray-200 bg-white sticky top-0 z-50 shadow-sm" role="banner">
   <div class="container mx-auto px-4 h-16 flex items-center justify-between">
     <div class="flex items-center gap-6">
       <h1 class="text-2xl">
-        <%= link_to "Servactory", Servactory::Web::Engine.routes.url_helpers.services_path, class: "font-bold text-gray-900 hover:text-blue-600 transition-colors" %>
+        <%= link_to "Servactory", Servactory::Web::Engine.routes.url_helpers.services_path, class: "font-bold text-gray-900 hover:text-blue-600 transition-colors", aria: { label: "Home" } %>
       </h1>
 
       <% if Servactory::Web.configuration.app_name.present? %>
-        <div class="h-6 w-px bg-gray-300"></div>
+        <div class="h-6 w-px bg-gray-300" aria-hidden="true"></div>
 
         <% if Servactory::Web.configuration.app_url.present? %>
-          <%= link_to Servactory::Web.configuration.app_name, Servactory::Web.configuration.app_url, target: "_blank", rel: "nofollow", class: "text-base font-medium text-gray-600 hover:text-gray-900 transition-colors" %>
+          <%= link_to Servactory::Web.configuration.app_name, Servactory::Web.configuration.app_url, target: "_blank", rel: "nofollow", class: "text-base font-medium text-gray-600 hover:text-gray-900 transition-colors", aria: { label: "Go to #{Servactory::Web.configuration.app_name}" } %>
         <% else %>
           <span class="text-base font-medium text-gray-600">
             <%= Servactory::Web.configuration.app_name %>
@@ -18,7 +18,7 @@
       <% end %>
     </div>
 
-    <nav class="hidden md:flex items-center gap-8">
+    <nav class="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
       <%= link_to "Documentation", Servactory::Web.configuration.documentation_url, target: "_blank", rel: "nofollow", class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors" %>
       <%= link_to "GitHub", Servactory::Web.configuration.github_url, target: "_blank", rel: "nofollow", class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors" %>
     </nav>

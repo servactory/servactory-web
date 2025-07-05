@@ -1,18 +1,259 @@
-<div class="max-w-5xl">
-  <div class="mb-6">
-    <% if @service_class && @source_code %>
-      <h2 class="text-3xl font-bold mb-3 text-gray-900"><%= @service_class.name %></h2>
-      <p class="text-gray-600 text-base">List of all services written using Servactory in the project</p>
-    <% else %>
-      <h2 class="text-3xl font-bold mb-3 text-gray-900">Not Found Service</h2>
-      <p class="text-gray-600 text-base">List of all services written using Servactory in the project</p>
-    <% end %>
+<% if @service_class && @source_code %>
+  <%= render partial: 'servactory/web/shared/page_header', locals: {
+    title: @service_class.name,
+    description: 'Detailed information about the service inputs, internals, outputs, and implementation'
+  } %>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <!-- Inputs -->
+    <div class="border border-gray-200 rounded-lg bg-white shadow-sm">
+      <div class="border-b border-gray-100 px-4 py-3 bg-gray-50">
+        <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 009.586 13H7"></path>
+          </svg>
+          Inputs
+        </h3>
+      </div>
+      <% if @service_class.info.inputs.present? %>
+        <div class="p-4 space-y-4">
+          <% @service_class.info.inputs.each do |name, input| %>
+            <div class="border-l-4 border-blue-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <code class="text-sm font-mono bg-blue-50 px-2 py-1 rounded text-blue-700">
+                  <%= name %>
+                </code>
+                <span class="text-xs bg-gray-100 px-2 py-1 rounded text-gray-600">
+                  <%= input.fetch(:actor).required? ? "required" : "optional" %>
+                </span>
+              </div>
+              <div class="text-xs text-gray-500 space-y-1">
+                <% input.except(:actor).each do |option_name, option_data| %>
+                  <div>
+                    <span class="font-medium"><%= option_name %>:</span>
+                    <%= option_data.inspect %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="p-8 text-center">
+          <svg class="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2-2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 009.586 13H7"></path>
+          </svg>
+          <p class="text-gray-500 text-sm">No input attributes defined</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't require any input values</p>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Internals -->
+    <div class="border border-gray-200 rounded-lg bg-white shadow-sm">
+      <div class="border-b border-gray-100 px-4 py-3 bg-gray-50">
+        <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+          </svg>
+          Internals
+        </h3>
+      </div>
+      <% if @service_class.info.internals.present? %>
+        <div class="p-4 space-y-4">
+          <% @service_class.info.internals.each do |name, output| %>
+            <div class="border-l-4 border-purple-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <code class="text-sm font-mono bg-blue-50 px-2 py-1 rounded text-purple-700">
+                  <%= name %>
+                </code>
+              </div>
+              <div class="text-xs text-gray-500 space-y-1">
+                <% output.except(:actor).each do |option_name, option_data| %>
+                  <div>
+                    <span class="font-medium"><%= option_name %>:</span>
+                    <%= option_data.inspect %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="p-8 text-center">
+          <svg class="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
+          </svg>
+          <p class="text-gray-500 text-sm">No internal attributes defined</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't use any internal values</p>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Outputs -->
+    <div class="border border-gray-200 rounded-lg bg-white shadow-sm">
+      <div class="border-b border-gray-100 px-4 py-3 bg-gray-50">
+        <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg class="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+          </svg>
+          Outputs
+        </h3>
+      </div>
+      <% if @service_class.info.outputs.present? %>
+        <div class="p-4 space-y-4">
+          <% @service_class.info.outputs.each do |name, internal| %>
+            <div class="border-l-4 border-green-500 pl-4">
+              <div class="flex items-center gap-2 mb-2">
+                <code class="text-sm font-mono bg-blue-50 px-2 py-1 rounded text-green-700">
+                  <%= name %>
+                </code>
+              </div>
+              <div class="text-xs text-gray-500 space-y-1">
+                <% internal.except(:actor).each do |option_name, option_data| %>
+                  <div>
+                    <span class="font-medium"><%= option_name %>:</span>
+                    <%= option_data.inspect %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="p-8 text-center">
+          <svg class="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2-2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 009.586 13H7"></path>
+          </svg>
+          <p class="text-gray-500 text-sm">No output attributes defined</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't expose any output values</p>
+        </div>
+      <% end %>
+    </div>
+
+    <!-- Actions -->
+    <div class="border border-gray-200 rounded-lg bg-white shadow-sm">
+      <div class="border-b border-gray-100 px-4 py-3 bg-gray-50">
+        <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+          <svg class="w-5 h-5 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10v20m0-20L8 6m4-2l4 4"></path>
+          </svg>
+          Actions
+        </h3>
+      </div>
+      <div class="p-4 space-y-4">
+        <div class="border-l-4 border-orange-500 pl-4">
+          <div class="flex items-center gap-2 mb-2">
+            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">validate_inputs!</code>
+          </div>
+          <div class="text-xs text-gray-500 space-y-1">
+            <div><span class="font-medium">returns:</span> void</div>
+            <div><span class="font-medium">raises:</span> ServiceFailure</div>
+          </div>
+        </div>
+
+        <div class="border-l-4 border-orange-500 pl-4">
+          <div class="flex items-center gap-2 mb-2">
+            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">prepare_case_data</code>
+          </div>
+          <div class="text-xs text-gray-500 space-y-1">
+            <div><span class="font-medium">returns:</span> Hash</div>
+            <div><span class="font-medium">memoized:</span> true</div>
+          </div>
+        </div>
+
+        <div class="border-l-4 border-orange-500 pl-4">
+          <div class="flex items-center gap-2 mb-2">
+            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">generate_legal_documents</code>
+          </div>
+          <div class="text-xs text-gray-500 space-y-1">
+            <div><span class="font-medium">returns:</span> Array</div>
+            <div><span class="font-medium">params:</span> case_data (Hash)</div>
+          </div>
+        </div>
+
+        <div class="border-l-4 border-orange-500 pl-4">
+          <div class="flex items-center gap-2 mb-2">
+            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">call</code>
+          </div>
+          <div class="text-xs text-gray-500 space-y-1">
+            <div><span class="font-medium">returns:</span> ServiceResult</div>
+            <div><span class="font-medium">main:</span> true</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <!-- Configuration -->
+  <div class="border border-gray-200 rounded-lg bg-white shadow-sm mb-8">
+    <div class="border-b border-gray-100 px-4 py-3 bg-gray-50">
+      <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 100 4m0-4v2m0-6V4"></path>
+        </svg>
+        Configuration
+      </h3>
+    </div>
+    <div class="p-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Timeout</div>
+          <div class="text-lg font-mono text-gray-900">30s</div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Max Retries</div>
+          <div class="text-lg font-mono text-gray-900">3</div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Priority</div>
+          <div class="text-lg font-mono text-gray-900">High</div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Environment</div>
+          <div class="text-lg font-mono text-gray-900">Production</div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Version</div>
+          <div class="text-lg font-mono text-gray-900">2.15.1</div>
+        </div>
+        <div class="bg-gray-50 p-3 rounded-md">
+          <div class="text-sm font-medium text-gray-700 mb-1">Status</div>
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+            <span class="text-sm font-medium text-green-700">Active</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Source code -->
+  <div class="border border-gray-200 rounded-lg bg-white shadow-sm">
+    <div class="border-b border-gray-100 px-4 py-3 bg-gray-50 flex items-center justify-between">
+      <h3 class="text-lg font-semibold text-gray-900 flex items-center gap-2">
+        <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+        </svg>
+        Source Code
+      </h3>
+      <button class="text-sm text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+        </svg>
+        Copy
+      </button>
+    </div>
+    <div class="p-0">
+      <pre class="bg-gray-900 text-gray-100 p-6 overflow-x-auto text-sm leading-relaxed"><code class="language-ruby"><%= html_escape(@source_code) %></code></pre>
+    </div>
+  </div>
+<% else %>
+  <%= render partial: 'servactory/web/shared/page_header', locals: {
+    title: 'Service Not Found',
+    description: 'The requested service could not be found'
+  } %>
   <div class="border border-gray-200 rounded-lg bg-white shadow-sm p-4">
-    <% if @service_class && @source_code %>
-      <pre class="bg-gray-100 p-4 rounded overflow-x-auto text-sm font-mono text-gray-800"><code class="language-ruby"><%= html_escape(@source_code) %></code></pre>
-    <% else %>
-      <p class="text-gray-500">Сервис не найден или не удалось получить исходный код.</p>
-    <% end %>
+    <p class="text-gray-500">Service not found or source code could not be retrieved.</p>
   </div>
-</div>
+<% end %>

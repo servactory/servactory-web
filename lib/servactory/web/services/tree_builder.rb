@@ -6,7 +6,6 @@ module Servactory
       # Builds a tree structure of service classes for UI display
       class TreeBuilder
         SERVICES_PATH = Servactory::Web.configuration.app_services_directory
-        private_constant :SERVICES_PATH
 
         # Builds the complete service tree
         #

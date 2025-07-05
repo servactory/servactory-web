@@ -1,8 +1,8 @@
 <div class="max-w-5xl">
-  <div class="mb-6">
-    <h2 class="text-3xl font-bold mb-3 text-gray-900">Services</h2>
-    <p class="text-gray-600 text-base">List of all services written using Servactory in the project</p>
-  </div>
+  <%= render partial: 'servactory/web/shared/page_header', locals: { 
+    title: 'Services',
+    description: 'List of all services written using Servactory in the project'
+  } %>
   <div class="border border-gray-200 rounded-lg bg-white shadow-sm p-4">
     <%= render partial: 'servactory/web/services/service_tree', locals: { services_tree: @services_tree } %>
   </div>

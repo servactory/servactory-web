@@ -1,15 +1,15 @@
-<footer class="border-t border-gray-200 bg-gray-50">
+<footer class="border-t border-gray-200 bg-gray-50" role="contentinfo">
   <div class="container mx-auto px-4 py-6">
     <div class="flex items-center justify-between text-sm text-gray-600">
       <div class="flex items-center gap-6">
         <span>© 2025 Servactory</span>
-        <div class="h-4 w-px bg-gray-300"></div>
-        <a href="#" class="hover:text-gray-900 transition-colors">Documentation</a>
-        <a href="#" class="hover:text-gray-900 transition-colors">Support</a>
+        <div class="h-4 w-px bg-gray-300" aria-hidden="true"></div>
+        <a href="<%= Servactory::Web.configuration.documentation_url %>" target="_blank" rel="nofollow" class="hover:text-gray-900 transition-colors" aria-label="Documentation">Documentation</a>
+        <a href="<%= Servactory::Web.configuration.github_url %>" target="_blank" rel="nofollow" class="hover:text-gray-900 transition-colors" aria-label="GitHub repository">GitHub</a>
       </div>
       <div class="flex items-center gap-2">
-        <span class="font-mono text-xs bg-gray-200 text-gray-800 px-3 py-1 rounded-full">Servactory <%= Servactory::VERSION::STRING %></span>
+        <span class="font-mono text-xs bg-gray-200 text-gray-800 px-3 py-1 rounded-full" aria-label="Servactory version">Servactory <%= Servactory::VERSION::STRING %></span>
       </div>
     </div>
   </div>
-</footer> 
+</footer>
