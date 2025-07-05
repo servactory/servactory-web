@@ -16,7 +16,7 @@ module Sandbox
     # Please, add to the `ignore` list any other `lib` subdirectories that do
     # not contain `.rb` files, or that should not be reloaded or eager loaded.
     # Common ones are `templates`, `generators`, or `middleware`, for example.
-    if Gem::Version.new(Rails::VERSION::STRING) >= Gem::Version.new("7.2.0")
+    if Gem::Version.new(Rails::VERSION::STRING) >= Gem::Version.new("7.1.0")
       config.autoload_lib(ignore: %w[assets tasks])
     end
 
