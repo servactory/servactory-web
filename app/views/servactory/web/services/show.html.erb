@@ -44,7 +44,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2-2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 009.586 13H7"></path>
           </svg>
           <p class="text-gray-500 text-sm">No input attributes defined</p>
-          <p class="text-gray-400 text-xs mt-1">This service doesn't require any input values</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't have any input attributes</p>
         </div>
       <% end %>
     </div>
@@ -85,7 +85,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path>
           </svg>
           <p class="text-gray-500 text-sm">No internal attributes defined</p>
-          <p class="text-gray-400 text-xs mt-1">This service doesn't use any internal values</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't have any internal attributes</p>
         </div>
       <% end %>
     </div>
@@ -126,7 +126,7 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2-2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 009.586 13H7"></path>
           </svg>
           <p class="text-gray-500 text-sm">No output attributes defined</p>
-          <p class="text-gray-400 text-xs mt-1">This service doesn't expose any output values</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't have any output attributes</p>
         </div>
       <% end %>
     </div>
@@ -141,7 +141,7 @@
           Actions
         </h3>
       </div>
-      <% if @service_class.info.outputs.present? %>
+      <% if @service_class.info.stages.present? %>
         <div class="p-4 space-y-4">
           <% @service_class.info.stages.each do |_stage_name, actions| %>
             <% actions.each do |name, action| %>
@@ -162,6 +162,14 @@
               </div>
             <% end %>
           <% end %>
+        </div>
+      <% else %>
+        <div class="p-8 text-center">
+          <svg class="w-12 h-12 text-gray-300 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-5-10v20m0-20L8 6m4-2l4 4"></path>
+          </svg>
+          <p class="text-gray-500 text-sm">No actions defined</p>
+          <p class="text-gray-400 text-xs mt-1">This service doesn't have any actions</p>
         </div>
       <% end %>
     </div>
