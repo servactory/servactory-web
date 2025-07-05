@@ -4,8 +4,8 @@
       <div class="flex items-center gap-6">
         <span>© 2025 Servactory</span>
         <div class="h-4 w-px bg-gray-300" aria-hidden="true"></div>
-        <a href="<%= Servactory::Web.configuration.documentation_url %>" target="_blank" rel="nofollow" class="hover:text-gray-900 transition-colors" aria-label="Documentation">Documentation</a>
-        <a href="<%= Servactory::Web.configuration.github_url %>" target="_blank" rel="nofollow" class="hover:text-gray-900 transition-colors" aria-label="GitHub repository">GitHub</a>
+        <%= link_to "Documentation", Servactory::Web.configuration.documentation_url, class: "hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "Documentation" } %>
+        <%= link_to "GitHub", Servactory::Web.configuration.github_url, class: "hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "GitHub repository" } %>
       </div>
       <div class="flex items-center gap-2">
         <span class="font-mono text-xs bg-gray-200 text-gray-800 px-3 py-1 rounded-full" aria-label="Servactory version">Servactory <%= Servactory::VERSION::STRING %></span>

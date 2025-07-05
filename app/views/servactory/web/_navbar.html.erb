@@ -19,8 +19,8 @@
     </div>
 
     <nav class="hidden md:flex items-center gap-8" role="navigation" aria-label="Main navigation">
-      <%= link_to "Documentation", Servactory::Web.configuration.documentation_url, target: "_blank", rel: "nofollow", class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors" %>
-      <%= link_to "GitHub", Servactory::Web.configuration.github_url, target: "_blank", rel: "nofollow", class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors" %>
+      <%= link_to "Documentation", Servactory::Web.configuration.documentation_url, class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "Documentation" }  %>
+      <%= link_to "GitHub", Servactory::Web.configuration.github_url, class: "text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors", target: "_blank", rel: "nofollow", aria: { label: "GitHub repository" } %>
     </nav>
   </div>
 </header>
