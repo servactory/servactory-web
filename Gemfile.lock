@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    servactory-web (2.15.1)
+    servactory-web (0.1.0)
       activesupport (>= 5.1, < 8.1)
       servactory (>= 2.15)
       zeitwerk (>= 2.6)
