@@ -141,47 +141,29 @@
           Actions
         </h3>
       </div>
-      <div class="p-4 space-y-4">
-        <div class="border-l-4 border-orange-500 pl-4">
-          <div class="flex items-center gap-2 mb-2">
-            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">validate_inputs!</code>
-          </div>
-          <div class="text-xs text-gray-500 space-y-1">
-            <div><span class="font-medium">returns:</span> void</div>
-            <div><span class="font-medium">raises:</span> ServiceFailure</div>
-          </div>
+      <% if @service_class.info.outputs.present? %>
+        <div class="p-4 space-y-4">
+          <% @service_class.info.stages.each do |_stage_name, actions| %>
+            <% actions.each do |name, action| %>
+              <div class="border-l-4 border-orange-500 pl-4">
+                <div class="flex items-center gap-2 mb-2">
+                  <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">
+                    <%= name %>
+                  </code>
+                </div>
+                <div class="text-xs text-gray-500 space-y-1">
+                  <% action.each do |option_name, option_data| %>
+                    <div>
+                      <span class="font-medium"><%= option_name %>:</span>
+                      <%= option_data.inspect %>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
         </div>
-
-        <div class="border-l-4 border-orange-500 pl-4">
-          <div class="flex items-center gap-2 mb-2">
-            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">prepare_case_data</code>
-          </div>
-          <div class="text-xs text-gray-500 space-y-1">
-            <div><span class="font-medium">returns:</span> Hash</div>
-            <div><span class="font-medium">memoized:</span> true</div>
-          </div>
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4">
-          <div class="flex items-center gap-2 mb-2">
-            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">generate_legal_documents</code>
-          </div>
-          <div class="text-xs text-gray-500 space-y-1">
-            <div><span class="font-medium">returns:</span> Array</div>
-            <div><span class="font-medium">params:</span> case_data (Hash)</div>
-          </div>
-        </div>
-
-        <div class="border-l-4 border-orange-500 pl-4">
-          <div class="flex items-center gap-2 mb-2">
-            <code class="text-sm font-mono bg-orange-50 px-2 py-1 rounded text-orange-700">call</code>
-          </div>
-          <div class="text-xs text-gray-500 space-y-1">
-            <div><span class="font-medium">returns:</span> ServiceResult</div>
-            <div><span class="font-medium">main:</span> true</div>
-          </div>
-        </div>
-      </div>
+      <% end %>
     </div>
   </div>
 
