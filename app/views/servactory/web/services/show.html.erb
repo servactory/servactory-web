@@ -31,7 +31,7 @@
                 <% input.except(:actor).each do |option_name, option_data| %>
                   <div>
                     <span class="font-medium"><%= option_name %>:</span>
-                    <%= option_data.inspect %>
+                    <%= option_name == :types ? option_data.map(&:name).join(", ") : option_data.inspect %>
                   </div>
                 <% end %>
               </div>
@@ -72,7 +72,7 @@
                 <% output.except(:actor).each do |option_name, option_data| %>
                   <div>
                     <span class="font-medium"><%= option_name %>:</span>
-                    <%= option_data.inspect %>
+                    <%= option_name == :types ? option_data.map(&:name).join(", ") : option_data.inspect %>
                   </div>
                 <% end %>
               </div>
@@ -113,7 +113,7 @@
                 <% internal.except(:actor).each do |option_name, option_data| %>
                   <div>
                     <span class="font-medium"><%= option_name %>:</span>
-                    <%= option_data.inspect %>
+                    <%= option_name == :types ? option_data.map(&:name).join(", ") : option_data.inspect %>
                   </div>
                 <% end %>
               </div>
