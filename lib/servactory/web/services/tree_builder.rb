@@ -6,7 +6,6 @@ module Servactory
       # Builds a tree structure of service classes for UI display
       class TreeBuilder
         SERVICES_PATH = Rails.root.join("app/services")
-        SERVICE_BASE_CLASS = ApplicationService::Servactory::Base
 
         # Builds the complete service tree
         #
@@ -180,8 +179,10 @@ module Servactory
         # @return [Boolean] True if it's a service class
         def service_class?(class_name)
           klass = class_name.safe_constantize
-          klass && klass < SERVICE_BASE_CLASS
-        rescue NameError
+          return false unless klass.is_a?(Class)
+          return false unless klass.respond_to?(:servactory?)
+          klass.servactory?
+        rescue StandardError
           false
         end
       end
