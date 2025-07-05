@@ -3,7 +3,7 @@ PATH
   specs:
     servactory-web (0.1.0)
       rails (>= 5.1, < 8.1)
-      servactory (>= 2.15)
+      servactory (>= 2.16.0.rc1)
       zeitwerk (>= 2.6)
 
 GEM
@@ -250,7 +250,7 @@ GEM
       rubocop-rspec (~> 3.5)
     ruby-progressbar (1.13.0)
     securerandom (0.4.1)
-    servactory (2.15.1)
+    servactory (2.16.0.rc1)
       activesupport (>= 5.1, < 8.1)
       base64 (>= 0.2)
       bigdecimal (>= 3.1)

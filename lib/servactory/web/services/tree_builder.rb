@@ -5,7 +5,7 @@ module Servactory
     module Services
       # Builds a tree structure of service classes for UI display
       class TreeBuilder
-        SERVICES_PATH = Rails.root.join(Servactory::Web.configuration.app_services_directory)
+        SERVICES_PATH = Servactory::Web.configuration.app_services_directory
         private_constant :SERVICES_PATH
 
         SERVICE_BASE_CLASS = Servactory::Web.configuration.app_services_class_base
