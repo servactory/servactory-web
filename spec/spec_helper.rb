@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-# require "zeitwerk"
-# require "forwardable"
+# Configure Rails Environment
+ENV["RAILS_ENV"] = "test"
+
+require "propshaft"
 require "servactory/web"
 
-# loader = Zeitwerk::Loader.new
-# loader.push_dir(File.expand_path("../examples", __dir__))
-# loader.setup
+require_relative "sandbox/config/environment"
 
 Dir[File.join(__dir__, "support", "**", "*.rb")].each { |file| require file }
 
