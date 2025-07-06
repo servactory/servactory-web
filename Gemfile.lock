@@ -349,7 +349,7 @@ DEPENDENCIES
   rake (>= 13.2)
   rbs (>= 3.8)
   rspec (>= 3.13)
-  rspec-rails (>= 8.0)
+  rspec-rails (>= 7.0)
   servactory-rubocop (>= 0.9)
   servactory-web!
   sqlite3 (>= 2.1)
