@@ -3,6 +3,7 @@
 # Configure Rails Environment
 ENV["RAILS_ENV"] = "test"
 
+require "capybara/rspec"
 require "propshaft"
 require "view_component"
 require "servactory/web"
@@ -14,6 +15,10 @@ Dir[File.join(__dir__, "support", "**", "*.rb")].each { |file| require file }
 # I18n.load_path += Dir["#{File.expand_path('config/locales')}/*.yml"]
 
 RSpec.configure do |config|
+  config.include ViewComponent::TestHelpers, type: :component
+  config.include ViewComponent::SystemTestHelpers, type: :component
+  config.include Capybara::RSpecMatchers, type: :component
+
   # Enable flags like --only-failures and --next-failure
   config.example_status_persistence_file_path = ".rspec_status"
 

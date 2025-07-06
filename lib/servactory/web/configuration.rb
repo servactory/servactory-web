@@ -18,7 +18,7 @@ module Servactory
       end
 
       def documentation_url
-        "https://servactory.com/"
+        "https://servactory.com"
       end
 
       def github_url

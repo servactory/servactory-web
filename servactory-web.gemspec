@@ -36,6 +36,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "zeitwerk", ">= 2.6"
 
   spec.add_development_dependency "appraisal", ">= 2.5"
+  spec.add_development_dependency "capybara", ">= 3.40"
   spec.add_development_dependency "propshaft", ">= 1.1"
   spec.add_development_dependency "rake", ">= 13.2"
   spec.add_development_dependency "rbs", ">= 3.8"
