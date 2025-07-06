@@ -13,6 +13,8 @@
       bg_class: @bg_class,
       empty_message: @empty_message
     ) %>
+  <% else %>
+    <%= render Servactory::Web::UiKit::Atoms::EmptyStateComponent.new(message: @empty_message) %>
   <% end %>
   <%= body if body %>
 <% end %>

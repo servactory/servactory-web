@@ -3,9 +3,9 @@
 module Servactory
   module Web
     module UiKit
-      module Molecules
+      module Atoms
         class EmptyStateComponent < ViewComponent::Base
-          include Concerns::ComponentOptions
+          include Servactory::Web::UiKit::Concerns::ComponentOptions
           def initialize(message:, class_name: nil, options: {})
             super()
             @message = message

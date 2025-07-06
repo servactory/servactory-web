@@ -66,6 +66,16 @@ Button for copying code.
 - `class_name:` — TailwindCSS utility classes
 - `options:` — стандартные HTML-атрибуты
 
+### EmptyStateComponent
+Empty state for lists.
+```erb
+<%= render EmptyStateComponent.new(message: 'No data') %>
+```
+**Parameters:**
+- `message:` — message to display
+- `class_name:` — TailwindCSS utility classes
+- `options:` — standard HTML attributes
+
 ---
 
 ## Molecules
@@ -101,12 +111,6 @@ Internal containers for cards, support customization via class_name and options.
 
 ### CardHeaderComponent
 Card header, supports customization.
-
-### EmptyStateComponent
-Empty state for lists.
-```erb
-<%= render EmptyStateComponent.new(message: 'No data') %>
-```
 
 ---
 
