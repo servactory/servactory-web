@@ -3,7 +3,7 @@
 module Servactory
   module Web
     module UiKit
-      module Molecules
+      module Atoms
         class CopyButtonComponent < ViewComponent::Base
           def initialize(code:)
             super()

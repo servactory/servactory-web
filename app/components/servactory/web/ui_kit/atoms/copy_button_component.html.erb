@@ -1,0 +1,4 @@
+<button type="button" class="text-sm text-gray-600 hover:text-gray-900 transition-colors flex items-center gap-1" onclick="navigator.clipboard.writeText('<%= j @code %>')">
+  <%= render Servactory::Web::UiKit::Atoms::IconComponent.new(name: :copy, class_name: 'w-4 h-4') %>
+  Copy
+</button> 

@@ -3,7 +3,7 @@
 module Servactory
   module Web
     module UiKit
-      module Molecules
+      module Atoms
         class CardHeaderTextComponent < ViewComponent::Base
           def initialize(text:, class_name: nil, options: {})
             super()

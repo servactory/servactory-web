@@ -22,14 +22,13 @@ The UI Kit is a set of reusable ViewComponent-based components for the Servactor
 ## Atoms
 
 ### IconComponent
-SVG icon (file, folder, custom, etc.).
+SVG icon (file, folder, etc.).
 ```erb
-<%= render IconComponent.new(type: :file) %>
-<%= render IconComponent.new(type: :custom, svg_path: 'M0...Z') %>
+<%= render IconComponent.new(name: :file, class_name: 'w-6 h-6 text-blue-500') %>
 ```
 **Parameters:**
-- `type:` — icon type (`:file`, `:folder`, `:inputs`, `:internals`, `:outputs`, `:actions`, `:code`, `:custom`)
-- `svg_path:` — path for custom icon
+- `name:` — icon name (`:file`, `:folder`, `:inputs`, `:internals`, `:outputs`, `:actions`, `:code`, `:custom`)
+- `class_name:` — TailwindCSS utility classes for the SVG element (required: always specify size and color)
 
 ### LinkComponent
 Customizable link.
@@ -41,17 +40,6 @@ Customizable link.
 - `text:` — link text
 - `options:` — standard HTML attributes and classes
 
-### ButtonComponent
-Button with text and optional icon.
-```erb
-<%= render ButtonComponent.new(text: 'Save', icon_type: :file, class_name: 'shadow-lg', options: { aria: { label: 'Save' } }) %>
-```
-**Parameters:**
-- `text:` — button text
-- `icon_type:` — icon type (see IconComponent)
-- `class_name:` — TailwindCSS utility classes
-- `options:` — standard HTML attributes
-
 ### BadgeComponent
 Badge with text, can be used for required/optional indicators.
 ```erb
@@ -62,6 +50,22 @@ Badge with text, can be used for required/optional indicators.
 - `text:` — badge text
 - `class_name:` — TailwindCSS utility classes
 
+### CopyButtonComponent
+Button for copying code.
+```erb
+<%= render CopyButtonComponent.new(code: 'def foo; end') %>
+```
+
+### CardHeaderTextComponent
+Заголовок для карточек и секций.
+```erb
+<%= render CardHeaderTextComponent.new(text: 'My Title', class_name: 'mb-2') %>
+```
+**Parameters:**
+- `text:` — заголовок
+- `class_name:` — TailwindCSS utility classes
+- `options:` — стандартные HTML-атрибуты
+
 ---
 
 ## Molecules
@@ -69,11 +73,11 @@ Badge with text, can be used for required/optional indicators.
 ### SectionHeaderComponent
 Section header with icon.
 ```erb
-<%= render SectionHeaderComponent.new(title: 'Inputs', icon_type: :file, class_name: 'text-blue-600') %>
+<%= render SectionHeaderComponent.new(title: 'Inputs', icon_name: :file, class_name: 'text-blue-600') %>
 ```
 **Parameters:**
 - `title:` — header text
-- `icon_type:` — icon type (see IconComponent)
+- `icon_name:` — icon name (see IconComponent)
 - `class_name:` — utility classes
 - `options:` — HTML attributes
 
@@ -95,14 +99,8 @@ Attribute list item (name, required/optional, description).
 ### CardBodyComponent / CardBodyContainerComponent / CardContainerComponent
 Internal containers for cards, support customization via class_name and options.
 
-### CardHeaderComponent / CardHeaderTextComponent
+### CardHeaderComponent
 Card header, supports customization.
-
-### CopyButtonComponent
-Button for copying code.
-```erb
-<%= render CopyButtonComponent.new(code: 'def foo; end') %>
-```
 
 ### EmptyStateComponent
 Empty state for lists.
@@ -131,10 +129,10 @@ Universal container for sections/content.
 ### SectionCardComponent
 Section card with header, icon, and attribute list (inputs, outputs, actions, etc.). Composes CardComponent, SectionHeaderComponent, AttributeListComponent.
 ```erb
-<%= render SectionCardComponent.new(title: 'Inputs', items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', icon_type: :inputs, empty_message: 'No input attributes') %>
+<%= render SectionCardComponent.new(title: 'Inputs', items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', icon_name: :inputs, empty_message: 'No input attributes') %>
 ```
 **Parameters:**
-- `title:`, `items:`, `border_class:`, `text_class:`, `bg_class:`, `icon_type:`, `empty_message:`, `class_name:`, `options:`
+- `title:`, `items:`, `border_class:`, `text_class:`, `bg_class:`, `icon_name:`, `empty_message:`, `class_name:`, `options:`
 
 ### AttributeListComponent
 List of attributes (inputs, outputs, internals, actions).
@@ -178,7 +176,7 @@ Page header with description.
 
 ## Best Practices
 - Use components for any repeated markup.
-- For complex sections, compose components (e.g., Card + SectionHeader + Button).
+- For complex sections, compose components (e.g., Card + SectionHeader).
 - Use IconComponent for SVG icons only.
 - Always use LinkComponent for links for consistency and accessibility.
 - Use only the `class_name:` parameter for custom utility classes.

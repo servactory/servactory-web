@@ -7,7 +7,7 @@ module Servactory
         class SectionCardComponent < ViewComponent::Base
           include Servactory::Web::UiKit::Concerns::ComponentOptions
           renders_one :body
-          def initialize(title:, border_class:, text_class:, bg_class:, icon_type:, empty_message:, items: nil,
+          def initialize(title:, border_class:, text_class:, bg_class:, icon_name:, empty_message:, items: nil,
                          class_name: nil, options: {})
             super()
             @title = title
@@ -15,7 +15,7 @@ module Servactory
             @border_class = border_class
             @text_class = text_class
             @bg_class = bg_class
-            @icon_type = icon_type
+            @icon_name = icon_name
             @empty_message = empty_message
             initialize_component_options(class_name:, options:)
           end

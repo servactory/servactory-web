@@ -2,7 +2,7 @@
   <% if content.present? %>
     <%= content %>
   <% elsif @text.present? %>
-    <%= render Servactory::Web::UiKit::Molecules::CardHeaderTextComponent.new(text: @text) %>
+    <%= render Servactory::Web::UiKit::Atoms::CardHeaderTextComponent.new(text: @text) %>
   <% end %>
   <% if right %>
     <div><%= right %></div>

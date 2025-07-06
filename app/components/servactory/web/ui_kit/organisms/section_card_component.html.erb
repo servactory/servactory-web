@@ -2,7 +2,7 @@
   <% card.with_header do %>
     <%= render Servactory::Web::UiKit::Molecules::SectionHeaderComponent.new(
       title: @title,
-      icon_type: @icon_type
+      icon_name: @icon_name
     ) %>
   <% end %>
   <% if @items.present? %>
