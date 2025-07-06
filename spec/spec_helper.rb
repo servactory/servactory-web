@@ -4,6 +4,7 @@
 ENV["RAILS_ENV"] = "test"
 
 require "propshaft"
+require "view_component"
 require "servactory/web"
 
 require_relative "sandbox/config/environment"
