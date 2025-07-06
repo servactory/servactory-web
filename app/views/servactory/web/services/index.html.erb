@@ -1,7 +1,7 @@
-<%= render Servactory::Web::UiKit::PageHeaderComponent.new(
+<%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
   title: 'Services',
   description: 'List of all services written using Servactory in the project'
 ) %>
-<%= render Servactory::Web::UiKit::CardComponent.new(class_name: 'shadow-lg') do %>
-  <%= render Servactory::Web::UiKit::TreeComponent.new(nodes: @services_tree) %>
+<%= render Servactory::Web::UiKit::Organisms::CardComponent.new(class_name: 'shadow-lg') do %>
+  <%= render Servactory::Web::UiKit::Organisms::TreeComponent.new(nodes: @services_tree) %>
 <% end %>

@@ -1,86 +1,193 @@
 # Servactory Web UI Kit
 
-The UI Kit is a set of reusable ViewComponent-based components for building the Servactory Web interface. All components follow atomic design principles, are easy to extend, and cover the main UI needs of the project.
+The UI Kit is a set of reusable ViewComponent-based components for the Servactory Web interface. All components are built according to atomic design principles (atoms, molecules, organisms), are easy to extend, and cover the main UI needs of the project.
 
-## Structure
+## Atomic Design
+
+- **Atoms** — basic elements (buttons, icons, badges, links).
+- **Molecules** — simple compositions of atoms (section headers, list items, containers).
+- **Organisms** — complex blocks combining molecules and atoms (cards, lists, service tree, navigation).
+
+## General Rules
 
 - Each component consists of a Ruby class and a template (`.rb` + `.html.erb`).
-- All components are located in `app/components/servactory/web/ui_kit`.
-- Components are loosely coupled but can compose each other.
-- **All components support `class_name:` for customizing TailwindCSS classes.**
-- **Use only classes from TailwindCSS 4.1. Do not use custom classes.**
-- **Do not use `options` unless you need to pass standard HTML attributes (e.g., aria-label).**
+- All components are located in `app/components/servactory/web/ui_kit` according to atomic design.
+- **All components support the `class_name:` parameter for customizing with TailwindCSS utility classes.**
+- **To pass standard HTML attributes, use the `options:` parameter (e.g., aria-label, data-*, target, etc.).**
+- **Use only TailwindCSS 4.1 utility classes. Do not add custom CSS classes.**
+- Do not use `options` unless you need to pass standard HTML attributes.
 
-## Component List
+---
 
-### Atomic
-- **IconComponent** — SVG icon (file, folder, custom). Example:
-  ```erb
-  <%= render IconComponent.new(type: :file) %>
-  <%= render IconComponent.new(type: :custom, svg_path: 'M0...Z') %>
-  ```
-- **LinkComponent** — link with customizable options. Example:
-  ```erb
-  <%= render LinkComponent.new(href: '/docs', text: 'Docs', options: { class: 'text-blue-600' }) %>
-  ```
-- **ButtonComponent** — button with text and optional icon. Example:
-  ```erb
-  <%= render ButtonComponent.new(text: 'Save', icon_type: :file, class_name: 'shadow-lg') %>
-  ```
+## Atoms
 
-### Typography
-- **PageHeaderComponent** — page header with title and description. Example:
-  ```erb
-  <%= render PageHeaderComponent.new(title: 'Title', description: 'Desc') %>
-  ```
-- **SectionHeaderComponent** — section header with icon. Example:
-  ```erb
-  <%= render SectionHeaderComponent.new(title: 'Inputs', icon_type: :file, class_name: 'text-blue-600') %>
-  ```
+### IconComponent
+SVG icon (file, folder, custom, etc.).
+```erb
+<%= render IconComponent.new(type: :file) %>
+<%= render IconComponent.new(type: :custom, svg_path: 'M0...Z') %>
+```
+**Parameters:**
+- `type:` — icon type (`:file`, `:folder`, `:inputs`, `:internals`, `:outputs`, `:actions`, `:code`, `:custom`)
+- `svg_path:` — path for custom icon
 
-### Layout/Containers
-- **CardComponent** — universal wrapper for sections/content. Example:
-  ```erb
-  <%= render CardComponent.new(class_name: 'shadow-lg') do %>
-    ...content...
+### LinkComponent
+Customizable link.
+```erb
+<%= render LinkComponent.new(href: '/docs', text: 'Docs', options: { class: 'text-blue-600', target: '_blank' }) %>
+```
+**Parameters:**
+- `href:` — URL
+- `text:` — link text
+- `options:` — standard HTML attributes and classes
+
+### ButtonComponent
+Button with text and optional icon.
+```erb
+<%= render ButtonComponent.new(text: 'Save', icon_type: :file, class_name: 'shadow-lg', options: { aria: { label: 'Save' } }) %>
+```
+**Parameters:**
+- `text:` — button text
+- `icon_type:` — icon type (see IconComponent)
+- `class_name:` — TailwindCSS utility classes
+- `options:` — standard HTML attributes
+
+### BadgeComponent
+Badge with text, can be used for required/optional indicators.
+```erb
+<%= render BadgeComponent.new(text: 'Username', class_name: 'mb-2') %>
+<%= render BadgeComponent.new(text: 'required', class_name: 'text-xs bg-gray-100 px-2 py-1 rounded text-gray-600') %>
+```
+**Parameters:**
+- `text:` — badge text
+- `class_name:` — TailwindCSS utility classes
+
+---
+
+## Molecules
+
+### SectionHeaderComponent
+Section header with icon.
+```erb
+<%= render SectionHeaderComponent.new(title: 'Inputs', icon_type: :file, class_name: 'text-blue-600') %>
+```
+**Parameters:**
+- `title:` — header text
+- `icon_type:` — icon type (see IconComponent)
+- `class_name:` — utility classes
+- `options:` — HTML attributes
+
+### AttributeItemComponent
+Attribute list item (name, required/optional, description).
+```erb
+<%= render AttributeItemComponent.new(name: 'user_id', border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', attribute: attr_obj) do %>
+  ...
+<% end %>
+```
+**Parameters:**
+- `name:` — attribute name
+- `border_class:` — utility class for left border
+- `text_class:` — utility class for text
+- `bg_class:` — utility class for background
+- `attribute:` — attribute object (determines required)
+- `class_name:`, `options:`
+
+### CardBodyComponent / CardBodyContainerComponent / CardContainerComponent
+Internal containers for cards, support customization via class_name and options.
+
+### CardHeaderComponent / CardHeaderTextComponent
+Card header, supports customization.
+
+### CopyButtonComponent
+Button for copying code.
+```erb
+<%= render CopyButtonComponent.new(code: 'def foo; end') %>
+```
+
+### EmptyStateComponent
+Empty state for lists.
+```erb
+<%= render EmptyStateComponent.new(message: 'No data') %>
+```
+
+---
+
+## Organisms
+
+### CardComponent
+Universal container for sections/content.
+```erb
+<%= render CardComponent.new(class_name: 'shadow-lg') do |card| %>
+  <% card.with_header do %>
+    ...
   <% end %>
-  ```
+  ...content...
+<% end %>
+```
+**Parameters:**
+- `class_name:`, `options:`
+- `header` slot for the header
 
-### Navigation
-- **NavbarComponent** — top navigation bar. Example:
-  ```erb
-  <%= render NavbarComponent.new(app_name: 'MyApp', app_url: '/', documentation_url: '/docs', github_url: 'https://github.com/...') %>
-  ```
-- **FooterComponent** — site footer. Example:
-  ```erb
-  <%= render FooterComponent.new(year: 2024, documentation_url: '/docs', github_url: 'https://github.com/...', version: '1.0.0', release_url: '/releases/1.0.0') %>
-  ```
+### SectionCardComponent
+Section card with header, icon, and attribute list (inputs, outputs, actions, etc.). Composes CardComponent, SectionHeaderComponent, AttributeListComponent.
+```erb
+<%= render SectionCardComponent.new(title: 'Inputs', items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', icon_type: :inputs, empty_message: 'No input attributes') %>
+```
+**Parameters:**
+- `title:`, `items:`, `border_class:`, `text_class:`, `bg_class:`, `icon_type:`, `empty_message:`, `class_name:`, `options:`
 
-### Service Tree
-- **TreeComponent** — wrapper for the service tree. Example:
-  ```erb
-  <%= render TreeComponent.new(nodes: @services_tree) %>
-  ```
-- **TreeNodeComponent** — recursive tree node (used internally by TreeComponent).
+### AttributeListComponent
+List of attributes (inputs, outputs, internals, actions).
+```erb
+<%= render AttributeListComponent.new(items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', empty_message: 'No attributes') %>
+```
 
-### Specialized
-- **CodeBlockComponent** — code block with copy button. Example:
-  ```erb
-  <%= render CodeBlockComponent.new(code: 'def foo; end', language: 'ruby', copy_button: true) %>
-  ```
+### CodeBlockComponent
+Block with source code and copy button.
+```erb
+<%= render CodeBlockComponent.new(code: 'def foo; end', language: 'ruby', copy_button: true) %>
+```
+**Parameters:**
+- `code:`, `language:`, `copy_button:`
+
+### TreeComponent / TreeNodeComponent
+Service tree (service navigation).
+```erb
+<%= render TreeComponent.new(nodes: @services_tree) %>
+```
+
+### NavbarComponent
+Top navigation bar.
+```erb
+<%= render NavbarComponent.new(app_name: 'MyApp', app_url: '/', documentation_url: '/docs', github_url: 'https://github.com/...') %>
+```
+
+### FooterComponent
+Site footer.
+```erb
+<%= render FooterComponent.new(year: 2024, documentation_url: '/docs', github_url: 'https://github.com/...', version: '1.0.0', release_url: '/releases/1.0.0') %>
+```
+
+### PageHeaderComponent
+Page header with description.
+```erb
+<%= render PageHeaderComponent.new(title: 'Title', description: 'Desc') %>
+```
+
+---
 
 ## Best Practices
 - Use components for any repeated markup.
 - For complex sections, compose components (e.g., Card + SectionHeader + Button).
-- Use IconComponent for SVG icons; do not inline SVG directly.
-- Always use LinkComponent for links to ensure consistent styles and aria attributes.
-- Follow the style and structure of the UI Kit when adding new components.
-- **Use `class_name:` to customize the appearance of components only with TailwindCSS classes.**
-- **Use only classes from TailwindCSS 4.1. Do not use custom classes.**
-- **Do not use `options` unless you need to pass standard HTML attributes (e.g., aria-label).**
+- Use IconComponent for SVG icons only.
+- Always use LinkComponent for links for consistency and accessibility.
+- Use only the `class_name:` parameter for custom utility classes.
+- Use only the `options:` parameter for standard HTML attributes.
+- Do not add custom CSS classes.
+- Follow atomic design when adding new components.
 
-## How to Add a New Component
-1. Create a Ruby class and template in this directory.
+## How to add a new component
+1. Create a Ruby class and template in the appropriate folder (atoms, molecules, organisms).
 2. Use the ViewComponent API (`< ComponentName < ViewComponent::Base`).
 3. Add a description and example to this README.
-4. Cover the component with tests (recommended).
+4. All testing must be done using RSpec.

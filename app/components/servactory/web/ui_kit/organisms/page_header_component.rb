@@ -1,0 +1,20 @@
+# frozen_string_literal: true
+
+# Organism: PageHeaderComponent
+# Использует только атомарные элементы (заголовок и описание).
+
+module Servactory
+  module Web
+    module UiKit
+      module Organisms
+        class PageHeaderComponent < ViewComponent::Base
+          def initialize(title:, description: nil)
+            super()
+            @title = title
+            @description = description
+          end
+        end
+      end
+    end
+  end
+end

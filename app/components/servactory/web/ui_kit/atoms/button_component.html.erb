@@ -1,0 +1,6 @@
+<button type="button" <%= tag.attributes(@options.merge(class: [@class_name, @options[:class]].compact.join(" "))) %>>
+  <% if @icon_type.present? %>
+    <%= render Servactory::Web::UiKit::Atoms::IconComponent.new(type: @icon_type) %>
+  <% end %>
+  <%= @text %>
+</button> 

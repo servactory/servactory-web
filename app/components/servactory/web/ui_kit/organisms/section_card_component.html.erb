@@ -1,0 +1,18 @@
+<%= render Servactory::Web::UiKit::Organisms::CardComponent.new(class_name: @class_name, options: @options) do |card| %>
+  <% card.with_header do %>
+    <%= render Servactory::Web::UiKit::Molecules::SectionHeaderComponent.new(
+      title: @title,
+      icon_type: @icon_type
+    ) %>
+  <% end %>
+  <% if @items.present? %>
+    <%= render Servactory::Web::UiKit::Organisms::AttributeListComponent.new(
+      items: @items,
+      border_class: @border_class,
+      text_class: @text_class,
+      bg_class: @bg_class,
+      empty_message: @empty_message
+    ) %>
+  <% end %>
+  <%= body if body %>
+<% end %>

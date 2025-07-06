@@ -10,7 +10,7 @@
     <%= stylesheet_link_tag 'servactory/web/compiled', 'data-turbo-track': 'reload' %>
   </head>
   <body class="min-h-screen flex flex-col bg-white">
-    <%= render Servactory::Web::UiKit::NavbarComponent.new(
+    <%= render Servactory::Web::UiKit::Organisms::NavbarComponent.new(
       app_name: Servactory::Web.configuration.app_name,
       app_url: Servactory::Web.configuration.app_url,
       documentation_url: Servactory::Web.configuration.documentation_url,
@@ -19,7 +19,7 @@
     <main class="flex-1 container mx-auto px-4 py-6" role="main">
       <%= yield %>
     </main>
-    <%= render Servactory::Web::UiKit::FooterComponent.new(
+    <%= render Servactory::Web::UiKit::Organisms::FooterComponent.new(
       year: Date.current.year,
       documentation_url: Servactory::Web.configuration.documentation_url,
       github_url: Servactory::Web.configuration.github_url,
