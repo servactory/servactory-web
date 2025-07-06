@@ -4,13 +4,13 @@
 ENV["RAILS_ENV"] = "test"
 
 require "propshaft"
+require "servactory"
 
 require_relative "sandbox/config/environment"
 
 require "capybara/rspec"
 require "rspec/rails"
 require "view_component"
-require "servactory"
 require "servactory/web"
 
 Dir[File.join(__dir__, "support", "**", "*.rb")].each { |file| require file }
