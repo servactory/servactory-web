@@ -1,0 +1,13 @@
+<div class="border-l-4 <%= @border_class %> pl-4 <%= @class_name %> <%= @options[:class] %>">
+  <div class="flex items-center gap-2 mb-2">
+    <code class="text-sm font-mono <%= @bg_class %> px-2 py-1 rounded <%= @text_class %>">
+      <%= @name %>
+    </code>
+    <% unless @required.nil? %>
+      <%= render Servactory::Web::UiKit::Atoms::BadgeComponent.new(text: (@required ? "required" : "optional"), class_name: "text-xs bg-gray-100 px-2 py-1 rounded text-gray-600") %>
+    <% end %>
+  </div>
+  <div class="text-xs text-gray-500 space-y-1">
+    <%= content %>
+  </div>
+</div>

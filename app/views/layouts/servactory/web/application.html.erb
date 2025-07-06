@@ -5,16 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Servactory Web Interface">
     <title>Servactory</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'servactory/web/compiled', 'data-turbo-track': 'reload' %>
   </head>
   <body class="min-h-screen flex flex-col bg-white">
-    <%= render 'servactory/web/navbar' %>
+    <%= render Servactory::Web::UiKit::Organisms::NavbarComponent.new(
+      app_name: Servactory::Web.configuration.app_name,
+      app_url: Servactory::Web.configuration.app_url,
+      documentation_url: Servactory::Web.configuration.documentation_url,
+      github_url: Servactory::Web.configuration.github_url
+    ) %>
     <main class="flex-1 container mx-auto px-4 py-6" role="main">
       <%= yield %>
     </main>
-    <%= render 'servactory/web/footer' %>
+    <%= render Servactory::Web::UiKit::Organisms::FooterComponent.new(
+      year: Date.current.year,
+      documentation_url: Servactory::Web.configuration.documentation_url,
+      github_url: Servactory::Web.configuration.github_url,
+      version: Servactory::VERSION::STRING,
+      release_url: Servactory::Web.configuration.release_url_for(Servactory::VERSION::STRING)
+    ) %>
   </body>
 </html>

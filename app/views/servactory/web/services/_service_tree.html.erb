@@ -1,7 +1,0 @@
-<nav aria-label="Services navigation">
-  <ul class="list-none p-0 m-0" role="tree">
-    <% services_tree.each do |node| %>
-      <%= render partial: 'servactory/web/services/service_node', locals: { node: node, level: 0 } %>
-    <% end %>
-  </ul>
-</nav>

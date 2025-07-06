@@ -1,0 +1,273 @@
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:24:36 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:24:37 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/full_name_service"):
+  
+Started GET "/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:24:37 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/not_existing_service"):
+  
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:24:59 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:24:59 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/full_name_service"):
+  
+Started GET "/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:24:59 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/not_existing_service"):
+  
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:25:29 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:25:29 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/full_name_service"):
+  
+Started GET "/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:25:29 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/not_existing_service"):
+  
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:25:45 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:25:45 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/full_name_service"):
+  
+Started GET "/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:25:46 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/not_existing_service"):
+  
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:25:54 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services" for 127.0.0.1 at 2025-07-07 01:28:12 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services"):
+  
+Started GET "/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:28:12 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/full_name_service"):
+  
+Started GET "/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:28:12 +0700
+  
+ActionController::RoutingError (No route matches [GET] "/services/not_existing_service"):
+  
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:28:43 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 23.7ms | GC: 9.1ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 35.8ms | GC: 15.5ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 16.3ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:28:43 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:28:44 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:28:54 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 14.4ms | GC: 0.0ms)
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:29:08 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 12.0ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 15.8ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:29:31 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 22.6ms | GC: 8.4ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 33.7ms | GC: 14.5ms)
+Completed 200 OK in 42ms (Views: 35.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 14.8ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:29:31 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.6ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:29:31 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.4ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.7ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:29:38 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 10.6ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 14.7ms | GC: 0.0ms)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:29:38 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+Completed 500 Internal Server Error in 0ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:29:38 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.6ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:30:42 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 14.7ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 18.1ms | GC: 0.0ms)
+Completed 200 OK in 41ms (Views: 20.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:30:42 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 9.2ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 9.6ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:30:42 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:31:15 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 14.8ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 18.1ms | GC: 0.0ms)
+Completed 200 OK in 39ms (Views: 19.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:31:15 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 9.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 9.4ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:31:15 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:31:22 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 12.7ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 15.9ms | GC: 0.0ms)
+Completed 200 OK in 32ms (Views: 17.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.3ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:31:22 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 11.6ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 12.0ms | GC: 0.0ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:31:22 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:31:27 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 10.9ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 13.7ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 15.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:31:27 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 7.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 7.4ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 7.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:31:27 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:31:36 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 12.0ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 15.1ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 16.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.2ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:31:36 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 8.5ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 8.9ms | GC: 0.0ms)
+Completed 200 OK in 9ms (Views: 9.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:31:36 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services" for 127.0.0.1 at 2025-07-07 01:31:50 +0700
+Processing by Servactory::Web::ServicesController#index as HTML
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/index.html.erb within layouts/servactory/web/application (Duration: 4.7ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 7.5ms | GC: 0.0ms)
+Completed 200 OK in 28ms (Views: 9.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/full_name_service" for 127.0.0.1 at 2025-07-07 01:31:50 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "full_name_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 6.8ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 7.1ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 7.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+Started GET "/servactory/services/not_existing_service" for 127.0.0.1 at 2025-07-07 01:31:50 +0700
+Processing by Servactory::Web::ServicesController#show as HTML
+  Parameters: {"id" => "not_existing_service"}
+  Rendering layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb
+  Rendering /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application
+  Rendered /Users/profox/Projects/servactory/servactory-web/app/views/servactory/web/services/show.html.erb within layouts/servactory/web/application (Duration: 0.1ms | GC: 0.0ms)
+  Rendered layout /Users/profox/Projects/servactory/servactory-web/app/views/layouts/servactory/web/application.html.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.5ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)

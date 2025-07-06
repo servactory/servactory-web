@@ -1,0 +1,12 @@
+<%= render Servactory::Web::UiKit::Molecules::CardContainerComponent.new do %>
+  <%= render Servactory::Web::UiKit::Molecules::CardHeaderComponent.new do %>
+    <span class="flex items-center gap-2">
+      <%= render Servactory::Web::UiKit::Atoms::IconComponent.new(name: :code, class_name: 'size-6 text-gray-600') %>
+      Source Code
+    </span>
+    <% if @copy_button %>
+      <%= render Servactory::Web::UiKit::Atoms::CopyButtonComponent.new(code: @code) %>
+    <% end %>
+  <% end %>
+  <pre class="bg-gray-900 text-gray-100 p-6 rounded-b-lg overflow-x-auto text-sm leading-relaxed"><code class="language-<%= @language %>"><%= html_escape(@code) %></code></pre>
+<% end %> 

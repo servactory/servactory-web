@@ -1,0 +1,10 @@
+<%= render Servactory::Web::UiKit::Molecules::CardContainerComponent.new(class_name: @class_name, options: @options) do %>
+  <% if header %>
+    <%= render Servactory::Web::UiKit::Molecules::CardHeaderComponent.new do %>
+      <%= header %>
+    <% end %>
+  <% end %>
+  <%= render Servactory::Web::UiKit::Molecules::CardBodyComponent.new do %>
+    <%= content %>
+  <% end %>
+<% end %> 

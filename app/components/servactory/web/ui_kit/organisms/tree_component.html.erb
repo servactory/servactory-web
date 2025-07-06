@@ -1,0 +1,7 @@
+<nav aria-label="Services navigation" class="<%= @class_name %> <%= @options[:class] %>" <%= tag.attributes(@options.except(:class)) %>>
+  <ul class="list-none p-0 m-0" role="tree">
+    <% @nodes.each do |node| %>
+      <%= render Servactory::Web::UiKit::Organisms::TreeNodeComponent.new(node: node, level: 0) %>
+    <% end %>
+  </ul>
+</nav> 
