@@ -5,7 +5,7 @@ module Servactory
     module UiKit
       module Organisms
         class TreeNodeComponent < ViewComponent::Base
-          def initialize(node:, level: 0, route_type: :internal, gem_name: nil)
+          def initialize(node:, route_type:, level: 0, gem_name: nil)
             super()
 
             @node = node
