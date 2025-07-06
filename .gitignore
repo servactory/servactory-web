@@ -6,3 +6,6 @@
 .gem_rbs_collection
 .rspec_status
 node_modules
+spec/sandbox/log/
+spec/sandbox/storage/
+spec/sandbox/tmp/

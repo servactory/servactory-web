@@ -4,13 +4,17 @@ module Servactory
   module Web
     class Configuration
       attr_accessor :app_name,
-                    :app_url
+                    :app_url,
+                    :gem_names,
+                    :gem_service_directories
 
       attr_reader :app_services_directory
 
       def initialize
         @app_services_directory = Rails.root.join("app/services")
         @app_url = nil
+        @gem_names = []
+        @gem_service_directories = %w[app/services lib]
       end
 
       def app_services_directory=(value)

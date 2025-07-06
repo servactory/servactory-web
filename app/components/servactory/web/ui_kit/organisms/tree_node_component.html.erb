@@ -7,7 +7,7 @@
       </div>
       <ul role="group">
         <% @node[:children].each do |child| %>
-          <%= render Servactory::Web::UiKit::Organisms::TreeNodeComponent.new(node: child, level: @level + 1) %>
+          <%= render Servactory::Web::UiKit::Organisms::TreeNodeComponent.new(node: child, level: @level + 1, route_type: @route_type, gem_name: @gem_name) %>
         <% end %>
       </ul>
     </div>
@@ -17,7 +17,12 @@
     <div class="<%= border_class %>">
       <div class="flex items-center gap-2 p-1 hover:bg-gray-50 rounded-md transition-colors">
         <%= render Servactory::Web::UiKit::Atoms::IconComponent.new(name: :file, class_name: 'size-3 text-gray-500') %>
-        <%= render Servactory::Web::UiKit::Atoms::LinkComponent.new(href: Servactory::Web::Engine.routes.url_helpers.service_path(@node[:path]), text: @node[:name], options: { class: "text-sm text-gray-700 hover:text-blue-600 transition-colors", aria: { label: "View service: #{@node[:name]}" } }) %>
+        <% url = if @route_type.to_sym == :internal
+          Servactory::Web::Engine.routes.url_helpers.internal_service_path(@node[:path])
+        else
+          Servactory::Web::Engine.routes.url_helpers.external_service_path(@gem_name, @node[:path])
+        end %>
+        <%= render Servactory::Web::UiKit::Atoms::LinkComponent.new(href: url, text: @node[:name], options: { class: "text-sm text-gray-700 hover:text-blue-600 transition-colors", aria: { label: "View service: #{@node[:name]}" } }) %>
       </div>
     </div>
   </li>

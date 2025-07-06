@@ -5,11 +5,13 @@ module Servactory
     module UiKit
       module Organisms
         class TreeNodeComponent < ViewComponent::Base
-          def initialize(node:, level: 0)
+          def initialize(node:, level: 0, route_type: :internal, gem_name: nil)
             super()
 
             @node = node
             @level = level
+            @route_type = route_type
+            @gem_name = gem_name
           end
 
           def border_class

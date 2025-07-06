@@ -6,9 +6,11 @@ module Servactory
       module Organisms
         class TreeComponent < ViewComponent::Base
           include Servactory::Web::UiKit::Concerns::ComponentOptions
-          def initialize(nodes: [], class_name: nil, options: {})
+          def initialize(nodes: [], class_name: nil, options: {}, route_type: :internal, gem_name: nil)
             super()
             @nodes = nodes
+            @route_type = route_type
+            @gem_name = gem_name
             initialize_component_options(class_name:, options:)
           end
         end

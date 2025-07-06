@@ -2,20 +2,20 @@
 
 require "spec_helper"
 
-RSpec.describe "ServicesController", type: :request do
+RSpec.describe "Servactory::Web::App::ServicesController", type: :request do
   let(:routes) { Servactory::Web::Engine.routes.url_helpers }
 
-  describe "GET /servactory/services" do
+  describe "GET /servactory/app/services" do
     it "returns http success" do
-      get routes.services_path
+      get routes.internal_services_path
       expect(response).to have_http_status(:ok)
     end
   end
 
-  describe "GET /services/:id" do
+  describe "GET /services/app/:id" do
     context "when service exists" do
       it "returns http success and renders service info", :aggregate_failures do
-        get routes.service_path("full_name_service")
+        get routes.internal_service_path("full_name_service")
         expect(response).to have_http_status(:ok)
         expect(response.body).to include("FullNameService")
         expect(response.body).to include("Inputs")
@@ -28,7 +28,7 @@ RSpec.describe "ServicesController", type: :request do
 
     context "when service does not exist" do
       it "returns http success and renders not found message", :aggregate_failures do
-        get routes.service_path("not_existing_service")
+        get routes.internal_service_path("not_existing_service")
         expect(response).to have_http_status(:ok)
         expect(response.body).to include("Service Not Found")
       end

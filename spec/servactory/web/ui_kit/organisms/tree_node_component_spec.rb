@@ -14,11 +14,10 @@ RSpec.describe Servactory::Web::UiKit::Organisms::TreeNodeComponent, type: :comp
   end
 
   it "renders file node with link", :aggregate_failures do
-    allow(url_helpers).to receive(:service_path).and_return("/services/file")
     render_inline(described_class.new(node: file_node))
     expect(page).to have_text("File")
     expect(page).to have_css("svg.size-3.text-gray-500")
-    expect(page).to have_link("File", href: "/services/file")
+    expect(page).to have_link("File", href: url_helpers.internal_service_path(file_node[:path]))
   end
 
   it "applies border class for nested level" do
