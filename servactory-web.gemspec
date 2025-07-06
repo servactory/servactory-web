@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", ">= 7.1", "< 8.1"
   spec.add_dependency "servactory", ">= 2.16.0.rc1"
+  spec.add_dependency "view_component", ">= 3.23"
   spec.add_dependency "zeitwerk", ">= 2.6"
 
   spec.add_development_dependency "appraisal", ">= 2.5"

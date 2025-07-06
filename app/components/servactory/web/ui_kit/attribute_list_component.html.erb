@@ -1,0 +1,22 @@
+<% if @items.present? %>
+  <div class="space-y-4 <%= @class_name %> <%= @options[:class] %>">
+    <% @items.each do |name, item_data| %>
+      <%= render Servactory::Web::UiKit::AttributeItemComponent.new(
+        name: name,
+        border_class: @border_class,
+        text_class: @text_class,
+        bg_class: @bg_class,
+        required: (item_data.key?(:actor) && item_data.fetch(:actor).respond_to?(:required?) ? item_data.fetch(:actor).required? : nil)
+      ) do %>
+        <% (item_data.key?(:actor) ? item_data.except(:actor) : item_data).each do |option_name, option_data| %>
+          <div>
+            <span class="font-medium"><%= option_name %>:</span>
+            <%= option_name == :types ? option_data.map(&:name).join(", ") : option_data.inspect %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+<% else %>
+  <%= render Servactory::Web::UiKit::EmptyStateComponent.new(message: @empty_message) %>
+<% end %>

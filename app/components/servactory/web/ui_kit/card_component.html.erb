@@ -1,0 +1,10 @@
+<div class="border border-gray-200 rounded-lg bg-white shadow-sm <%= @class_name %>" <%= tag.attributes(@options.merge(class: [@class_name, @options[:class]].compact.join(" "))) %>>
+  <% if header %>
+    <div class="border-b border-gray-100 rounded-t-lg px-4 py-3 bg-gray-50">
+      <%= header %>
+    </div>
+  <% end %>
+  <div class="p-4">
+    <%= content %>
+  </div>
+</div> 

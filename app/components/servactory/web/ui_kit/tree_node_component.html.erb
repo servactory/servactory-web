@@ -1,0 +1,24 @@
+<% if directory? %>
+  <li class="mb-0.5" role="treeitem" aria-expanded="true">
+    <div class="<%= border_class %>">
+      <div class="flex items-center gap-2 mb-1 p-1.5 hover:bg-gray-50 rounded-md transition-colors">
+        <%= render Servactory::Web::UiKit::IconComponent.new(type: :folder) %>
+        <span class="text-sm font-semibold text-gray-800"><%= @node[:name] %></span>
+      </div>
+      <ul role="group">
+        <% @node[:children].each do |child| %>
+          <%= render Servactory::Web::UiKit::TreeNodeComponent.new(node: child, level: @level + 1) %>
+        <% end %>
+      </ul>
+    </div>
+  </li>
+<% else %>
+  <li class="mb-0.5" role="treeitem">
+    <div class="<%= border_class %>">
+      <div class="flex items-center gap-2 p-1 hover:bg-gray-50 rounded-md transition-colors">
+        <%= render Servactory::Web::UiKit::IconComponent.new(type: :file) %>
+        <%= render Servactory::Web::UiKit::LinkComponent.new(href: Servactory::Web::Engine.routes.url_helpers.service_path(@node[:path]), text: @node[:name], options: { class: "text-sm text-gray-700 hover:text-blue-600 transition-colors", aria: { label: "View service: #{@node[:name]}" } }) %>
+      </div>
+    </div>
+  </li>
+<% end %> 
