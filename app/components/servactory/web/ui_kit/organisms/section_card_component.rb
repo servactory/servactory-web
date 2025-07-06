@@ -1,11 +1,5 @@
 # frozen_string_literal: true
 
-# Organism: SectionCardComponent
-# Использует CardComponent (organism) для контейнера и заголовка,
-# SectionHeaderComponent (molecule) для расширенного заголовка с иконкой,
-# AttributeListComponent (organism) для списка атрибутов.
-# Все параметры и слоты соответствуют atomic design.
-
 module Servactory
   module Web
     module UiKit

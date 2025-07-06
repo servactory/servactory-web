@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-# Organism: PageHeaderComponent
-# Использует только атомарные элементы (заголовок и описание).
-
 module Servactory
   module Web
     module UiKit
