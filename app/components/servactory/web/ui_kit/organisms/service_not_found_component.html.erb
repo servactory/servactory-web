@@ -1,0 +1,8 @@
+<%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+  title: 'Service Not Found',
+  description: 'The requested service could not be found'
+) %>
+
+<%= render Servactory::Web::UiKit::Organisms::CardComponent.new(class_name: @class_name, options: @options) do %>
+  <p class="text-gray-500">Service not found or source code could not be retrieved.</p>
+<% end %>

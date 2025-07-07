@@ -1,0 +1,15 @@
+<div class="<%= @class_name %> <%= @options[:class] %>" <%= tag.attributes(@options.except(:class)) %>>
+  <%= render Servactory::Web::UiKit::Atoms::ColoredSectionHeaderComponent.new(
+    title: @title,
+    border_class: @border_class,
+    bg_class: @bg_class,
+    text_class: @text_class
+  ) %>
+  <%= render Servactory::Web::UiKit::Organisms::AttributeListComponent.new(
+    items: @items,
+    border_class: @border_class,
+    text_class: @text_class,
+    bg_class: @bg_class,
+    empty_message: @empty_message
+  ) %>
+</div>

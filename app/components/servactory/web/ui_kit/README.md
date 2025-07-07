@@ -50,6 +50,24 @@ Badge with text, can be used for required/optional indicators.
 - `text:` — badge text
 - `class_name:` — TailwindCSS utility classes
 
+### ColoredSectionHeaderComponent
+Colored section header with a left border.
+```erb
+<%= render ColoredSectionHeaderComponent.new(
+  title: 'Inputs',
+  border_class: 'border-blue-500',
+  bg_class: 'bg-blue-100/60',
+  text_class: 'text-blue-700'
+) %>
+```
+**Parameters:**
+- `title:` — header text
+- `border_class:` — utility class for left border
+- `bg_class:` — utility class for background
+- `text_class:` — utility class for text
+- `class_name:` — additional utility classes
+- `options:` — standard HTML attributes
+
 ### CopyButtonComponent
 Button for copying code.
 ```erb
@@ -57,14 +75,14 @@ Button for copying code.
 ```
 
 ### CardHeaderTextComponent
-Заголовок для карточек и секций.
+Header for cards and sections.
 ```erb
 <%= render CardHeaderTextComponent.new(text: 'My Title', class_name: 'mb-2') %>
 ```
 **Parameters:**
-- `text:` — заголовок
+- `text:` — header
 - `class_name:` — TailwindCSS utility classes
-- `options:` — стандартные HTML-атрибуты
+- `options:` — standard HTML attributes
 
 ### EmptyStateComponent
 Empty state for lists.
@@ -90,6 +108,27 @@ Section header with icon.
 - `icon_name:` — icon name (see IconComponent)
 - `class_name:` — utility classes
 - `options:` — HTML attributes
+
+### AttributeSectionComponent
+Section with colored header and attribute list.
+```erb
+<%= render AttributeSectionComponent.new(
+  title: 'Inputs',
+  items: @inputs,
+  border_class: 'border-blue-500',
+  text_class: 'text-blue-700',
+  bg_class: 'bg-blue-100/60'
+) %>
+```
+**Parameters:**
+- `title:` — section title
+- `items:` — attributes to display
+- `border_class:` — utility class for left border
+- `bg_class:` — utility class for background
+- `text_class:` — utility class for text
+- `empty_message:` — message to display when no items
+- `class_name:` — additional utility classes
+- `options:` — standard HTML attributes
 
 ### AttributeItemComponent
 Attribute list item (name, required/optional, description).
@@ -133,7 +172,7 @@ Universal container for sections/content.
 ### SectionCardComponent
 Section card with header, icon, and attribute list (inputs, outputs, actions, etc.). Composes CardComponent, SectionHeaderComponent, AttributeListComponent.
 ```erb
-<%= render SectionCardComponent.new(title: 'Inputs', items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', icon_name: :inputs, empty_message: 'No input attributes') %>
+<%= render SectionCardComponent.new(title: 'Inputs', items: @items, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', icon_name: :inputs, empty_message: 'No input attributes') %>
 ```
 **Parameters:**
 - `title:`, `items:`, `border_class:`, `text_class:`, `bg_class:`, `icon_name:`, `empty_message:`, `class_name:`, `options:`
@@ -141,7 +180,7 @@ Section card with header, icon, and attribute list (inputs, outputs, actions, et
 ### AttributeListComponent
 List of attributes (inputs, outputs, internals, actions).
 ```erb
-<%= render AttributeListComponent.new(items: {...}, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', empty_message: 'No attributes') %>
+<%= render AttributeListComponent.new(items: @items, border_class: 'border-blue-500', text_class: 'text-blue-700', bg_class: 'bg-blue-50', empty_message: 'No attributes') %>
 ```
 
 ### CodeBlockComponent
@@ -151,6 +190,45 @@ Block with source code and copy button.
 ```
 **Parameters:**
 - `code:`, `language:`, `copy_button:`
+
+### AttributesBlockComponent
+Block containing multiple attribute sections (inputs, internals, outputs).
+```erb
+<%= render AttributesBlockComponent.new(
+  inputs: @inputs,
+  internals: @internals,
+  outputs: @outputs
+) %>
+```
+**Parameters:**
+- `inputs:` — input attributes
+- `internals:` — internal attributes
+- `outputs:` — output attributes
+- `class_name:` — additional utility classes
+- `options:` — standard HTML attributes
+
+### ServiceDetailsComponent
+Complete service details page with header, attributes, actions, and code.
+```erb
+<%= render ServiceDetailsComponent.new(
+  service_class: @service_class,
+  source_code: @source_code
+) %>
+```
+**Parameters:**
+- `service_class:` — service class object
+- `source_code:` — service source code
+- `class_name:` — additional utility classes
+- `options:` — standard HTML attributes
+
+### ServiceNotFoundComponent
+Service not found page.
+```erb
+<%= render ServiceNotFoundComponent.new %>
+```
+**Parameters:**
+- `class_name:` — additional utility classes
+- `options:` — standard HTML attributes
 
 ### TreeComponent / TreeNodeComponent
 Service tree (service navigation).

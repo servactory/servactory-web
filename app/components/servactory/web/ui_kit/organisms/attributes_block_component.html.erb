@@ -1,0 +1,31 @@
+<div class="space-y-3 <%= @class_name %> <%= @options[:class] %>" <%= tag.attributes(@options.except(:class)) %>>
+  <% if @inputs.present? %>
+    <%= render Servactory::Web::UiKit::Molecules::AttributeSectionComponent.new(
+      title: 'Inputs',
+      items: @inputs,
+      border_class: 'border-blue-500',
+      text_class: 'text-blue-700',
+      bg_class: 'bg-blue-100/60'
+    ) %>
+  <% end %>
+
+  <% if @internals.present? %>
+    <%= render Servactory::Web::UiKit::Molecules::AttributeSectionComponent.new(
+      title: 'Internals',
+      items: @internals,
+      border_class: 'border-purple-500',
+      text_class: 'text-purple-700',
+      bg_class: 'bg-purple-100/60'
+    ) %>
+  <% end %>
+
+  <% if @outputs.present? %>
+    <%= render Servactory::Web::UiKit::Molecules::AttributeSectionComponent.new(
+      title: 'Outputs',
+      items: @outputs,
+      border_class: 'border-green-500',
+      text_class: 'text-green-700',
+      bg_class: 'bg-green-100/60'
+    ) %>
+  <% end %>
+</div>

@@ -4,7 +4,6 @@ module Servactory
   module Web
     module Services
       module Internal
-        # Строит дерево сервисов только из app/services
         class TreeBuilder
           SERVICES_PATH = Servactory::Web.configuration.app_services_directory
 
