@@ -9,7 +9,7 @@ RSpec.describe Servactory::Web::UiKit::Organisms::TreeComponent, type: :componen
   end
 
   it "renders tree with directories and files", :aggregate_failures do
-    render_inline(described_class.new(nodes:))
+    render_inline(described_class.new(nodes:, route_type: :internal))
     expect(page).to have_css("nav[aria-label='Services navigation']")
     expect(page).to have_text("Dir1")
     expect(page).to have_text("File1")
@@ -19,7 +19,8 @@ RSpec.describe Servactory::Web::UiKit::Organisms::TreeComponent, type: :componen
   end
 
   it "applies custom class_name and options" do
-    render_inline(described_class.new(nodes:, class_name: "mb-4", options: { class: "bg-gray-100" }))
+    render_inline(described_class.new(nodes:, class_name: "mb-4", options: { class: "bg-gray-100" },
+                                      route_type: :internal))
     expect(page).to have_css(".mb-4.bg-gray-100")
   end
 end

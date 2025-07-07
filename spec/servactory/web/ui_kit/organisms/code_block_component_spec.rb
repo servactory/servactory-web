@@ -17,6 +17,6 @@ RSpec.describe Servactory::Web::UiKit::Organisms::CodeBlockComponent, type: :com
 
   it "does not render copy button if copy_button is false" do
     render_inline(described_class.new(code: "puts 1", copy_button: false))
-    expect(page).not_to have_button("Copy")
+    expect(page).to have_no_button("Copy")
   end
 end

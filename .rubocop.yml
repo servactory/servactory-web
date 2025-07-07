@@ -1,4 +1,8 @@
 inherit_gem: { servactory-rubocop: rubocop-gem.yml }
 
+plugins:
+  - rubocop-capybara
+  - rubocop-rspec_rails
+
 Style/Documentation:
   Enabled: false

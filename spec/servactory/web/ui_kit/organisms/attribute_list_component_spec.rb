@@ -34,6 +34,6 @@ RSpec.describe Servactory::Web::UiKit::Organisms::AttributeListComponent, type: 
         empty_message: "No attributes"
       )
     )
-    expect(page).not_to have_text("No attributes") # Empty state is not rendered here, only in SectionCardComponent
+    expect(page).to have_no_text("No attributes") # Empty state is not rendered here, only in SectionCardComponent
   end
 end

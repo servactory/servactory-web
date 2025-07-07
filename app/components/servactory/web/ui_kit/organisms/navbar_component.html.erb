@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4 h-16 flex items-center justify-between">
     <div class="flex items-center gap-6">
       <h1 class="text-2xl">
-        <%= render Servactory::Web::UiKit::Atoms::LinkComponent.new(href: Servactory::Web::Engine.routes.url_helpers.services_path, text: "Servactory", options: { class: "font-bold text-gray-900 hover:text-blue-600 transition-colors", aria: { label: "Home" } }) %>
+        <%= render Servactory::Web::UiKit::Atoms::LinkComponent.new(href: Servactory::Web::Engine.routes.url_helpers.internal_services_path, text: "Servactory", options: { class: "font-bold text-gray-900 hover:text-blue-600 transition-colors", aria: { label: "Home" } }) %>
       </h1>
       <% if @app_name.present? %>
         <div class="h-6 w-px bg-gray-300" aria-hidden="true"></div>

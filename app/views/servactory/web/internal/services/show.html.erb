@@ -1,0 +1,67 @@
+<% if @service_class && @source_code %>
+  <%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+    title: @service_class.name,
+    description: 'Detailed information about the service inputs, internals, outputs, and implementation'
+  ) %>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+    <%= render Servactory::Web::UiKit::Organisms::SectionCardComponent.new(
+      title: 'Inputs',
+      items: @service_class.info.inputs,
+      border_class: 'border-blue-500',
+      text_class: 'text-blue-700',
+      bg_class: 'bg-blue-50',
+      icon_name: :inputs,
+      empty_message: 'No input attributes defined',
+      class_name: 'mb-4'
+    ) %>
+
+    <%= render Servactory::Web::UiKit::Organisms::SectionCardComponent.new(
+      title: 'Internals',
+      items: @service_class.info.internals,
+      border_class: 'border-purple-500',
+      text_class: 'text-purple-700',
+      bg_class: 'bg-blue-50',
+      icon_name: :internals,
+      empty_message: 'No internal attributes defined'
+    ) %>
+
+    <%= render Servactory::Web::UiKit::Organisms::SectionCardComponent.new(
+      title: 'Outputs',
+      items: @service_class.info.outputs,
+      border_class: 'border-green-500',
+      text_class: 'text-green-700',
+      bg_class: 'bg-blue-50',
+      icon_name: :outputs,
+      empty_message: 'No output attributes defined'
+    ) %>
+
+    <%
+      # Transform stages data to a flat structure for the component
+      actions_data = {}
+      if @service_class.info.stages.present?
+        @service_class.info.stages.each do |_stage_name, actions|
+          actions_data.merge!(actions)
+        end
+      end
+    %>
+
+    <%= render Servactory::Web::UiKit::Organisms::SectionCardComponent.new(
+      title: 'Actions',
+      items: actions_data,
+      border_class: 'border-orange-500',
+      text_class: 'text-orange-700',
+      bg_class: 'bg-orange-50',
+      icon_name: :actions,
+      empty_message: 'No actions defined'
+    ) %>
+  </div>
+  <%= render Servactory::Web::UiKit::Organisms::CodeBlockComponent.new(code: @source_code, language: "ruby", copy_button: true) %>
+<% else %>
+  <%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+    title: 'Service Not Found',
+    description: 'The requested service could not be found'
+  ) %>
+  <%= render Servactory::Web::UiKit::Organisms::CardComponent.new do %>
+    <p class="text-gray-500">Service not found or source code could not be retrieved.</p>
+  <% end %>
+<% end %>

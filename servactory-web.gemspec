@@ -42,5 +42,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rbs", ">= 3.8"
   spec.add_development_dependency "rspec", ">= 3.13"
   spec.add_development_dependency "rspec-rails", ">= 7.0"
+  spec.add_development_dependency "rubocop-capybara", ">= 0.9" # TODO: Add to servactory-rubocop
   spec.add_development_dependency "servactory-rubocop", ">= 0.9"
 end

@@ -1,0 +1,7 @@
+<%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+  title: 'Services: Application',
+  description: 'List of all services written using Servactory in the Application'
+) %>
+<%= render Servactory::Web::UiKit::Organisms::CardComponent.new(class_name: 'shadow-lg') do %>
+  <%= render Servactory::Web::UiKit::Organisms::TreeComponent.new(nodes: @app_services_tree, route_type: :internal) %>
+<% end %>

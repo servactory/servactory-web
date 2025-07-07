@@ -1,0 +1,19 @@
+<% if @gem %>
+  <%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+    title: "Services: #{@gem.full_name}",
+    description: "List of all services written using Servactory in the Gem"
+  ) %>
+  <%= render Servactory::Web::UiKit::Organisms::CardComponent.new(class_name: 'shadow-lg') do %>
+    <%= render Servactory::Web::UiKit::Organisms::TreeComponent.new(nodes: @gem_services_tree, route_type: :external, gem_name: @gem.name) %>
+  <% end %>
+<% else %>
+  <%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+    title: "Service Not Found",
+    description: nil
+  ) %>
+  <%= render Servactory::Web::UiKit::Organisms::CardComponent.new do %>
+    <div class="text-gray-500">
+      No services found for the specified <pre class="inline"><code><%= params[:gem_name] %></code></pre> library
+    </div>
+  <% end %>
+<% end %>
