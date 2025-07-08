@@ -1,0 +1,7 @@
+<nav class="sticky top-16 z-40 border-b border-gray-200 bg-gray-50 px-0 <%= @class_name %> <%= @options[:class] %>" <%= tag.attributes(@options.except(:class)) %>>
+  <div class="container mx-auto px-4 h-9 flex items-center gap-4">
+    <% links.each do |link| %>
+      <%= render Servactory::Web::UiKit::Atoms::LinkComponent.new(href: link[:href], text: link[:text], options: { class: link_classes(link) }) %>
+    <% end %>
+  </div>
+</nav> 
