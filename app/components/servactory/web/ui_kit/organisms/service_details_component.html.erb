@@ -1,0 +1,35 @@
+<%= render Servactory::Web::UiKit::Organisms::PageHeaderComponent.new(
+  title: @service_class.name,
+  description: 'Detailed information about the service inputs, internals, outputs, and implementation'
+) %>
+
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <!-- Attributes Block -->
+  <%= render Servactory::Web::UiKit::Organisms::CardComponent.new do |card| %>
+    <% card.with_header do %>
+      <%= render Servactory::Web::UiKit::Molecules::SectionHeaderComponent.new(title: 'Attributes', icon_name: :stack) %>
+    <% end %>
+    <% if inputs.present? || internals.present? || outputs.present? %>
+      <%= render Servactory::Web::UiKit::Organisms::AttributesBlockComponent.new(
+        inputs: inputs,
+        internals: internals,
+        outputs: outputs
+      ) %>
+    <% else %>
+      <%= render Servactory::Web::UiKit::Atoms::EmptyStateComponent.new(message: 'No attributes defined') %>
+    <% end %>
+  <% end %>
+
+  <!-- Actions Block -->
+  <%= render Servactory::Web::UiKit::Organisms::SectionCardComponent.new(
+    title: 'Actions',
+    items: actions_data,
+    border_class: 'border-orange-500',
+    text_class: 'text-orange-700',
+    bg_class: 'bg-orange-50',
+    icon_name: :actions,
+    empty_message: 'No actions defined'
+  ) %>
+</div>
+
+<%= render Servactory::Web::UiKit::Organisms::CodeBlockComponent.new(code: @source_code, language: "ruby", copy_button: true) %>

@@ -16,6 +16,10 @@
       documentation_url: Servactory::Web.configuration.documentation_url,
       github_url: Servactory::Web.configuration.github_url
     ) %>
+    <%= render Servactory::Web::UiKit::Organisms::SubnavigationComponent.new(
+      gem_names: Servactory::Web.configuration.gem_names,
+      active_gem_name: params[:gem_name]
+    ) %>
     <main class="flex-1 container mx-auto px-4 py-6" role="main">
       <%= yield %>
     </main>
