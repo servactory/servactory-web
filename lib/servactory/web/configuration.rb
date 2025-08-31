@@ -3,22 +3,27 @@
 module Servactory
   module Web
     class Configuration
-      attr_accessor :app_name,
+      include ::ActiveModel::Validations
+
+      attr_accessor :mount_path,
+                    :app_name,
                     :app_url,
                     :gem_names,
+                    :app_services_directory,
                     :gem_service_directories
 
-      attr_reader :app_services_directory
+      validates :mount_path, presence: true
+
+      validates :app_name, presence: true
+      validates :app_url, presence: true
+
+      validates :app_services_directory, presence: true
 
       def initialize
-        @app_services_directory = Rails.root.join("app/services")
-        @app_url = nil
+        @mount_path = :services
+        @app_services_directory = "app/services"
         @gem_names = []
         @gem_service_directories = %w[app/services lib]
-      end
-
-      def app_services_directory=(value)
-        @app_services_directory = Rails.root.join(value)
       end
 
       def documentation_url

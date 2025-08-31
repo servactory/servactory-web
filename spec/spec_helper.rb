@@ -4,11 +4,13 @@
 ENV["RAILS_ENV"] = "test"
 
 require "propshaft"
+require "propshaft/railtie"
 require "servactory"
-require "servactory/web"
 require "view_component"
 
 require_relative "sandbox/config/environment"
+
+require "servactory/web"
 
 require "capybara/rspec"
 require "rspec/rails"

@@ -19,7 +19,7 @@ RSpec.describe "Servactory::Web::App::ServicesController", type: :request do
         expect(response).to have_http_status(:ok)
         expect(response.body).to include("FullNameService")
         expect(response.body).to include("Inputs")
-        expect(response.body).to include("Internals")
+        expect(response.body).not_to include("Internals")
         expect(response.body).to include("Outputs")
         expect(response.body).to include("Actions")
         expect(response.body).to include("Source Code")

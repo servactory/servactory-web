@@ -16,7 +16,7 @@ RSpec.describe Servactory::Web::UiKit::Organisms::SectionCardComponent, type: :c
         border_class: "border-blue-500",
         text_class: "text-blue-700",
         bg_class: "bg-blue-50",
-        icon_name: :inputs,
+        icon_name: :stack,
         empty_message: "No attributes"
       )
     )
@@ -37,7 +37,7 @@ RSpec.describe Servactory::Web::UiKit::Organisms::SectionCardComponent, type: :c
         border_class: "border-blue-500",
         text_class: "text-blue-700",
         bg_class: "bg-blue-50",
-        icon_name: :inputs,
+        icon_name: :stack,
         empty_message: "No attributes"
       )
     )
@@ -52,7 +52,7 @@ RSpec.describe Servactory::Web::UiKit::Organisms::SectionCardComponent, type: :c
         border_class: "border-blue-500",
         text_class: "text-blue-700",
         bg_class: "bg-blue-50",
-        icon_name: :inputs,
+        icon_name: :stack,
         empty_message: "No attributes",
         class_name: "mb-4",
         options: { class: "bg-gray-100" }
@@ -69,7 +69,7 @@ RSpec.describe Servactory::Web::UiKit::Organisms::SectionCardComponent, type: :c
         border_class: "border-blue-500",
         text_class: "text-blue-700",
         bg_class: "bg-blue-50",
-        icon_name: :inputs,
+        icon_name: :stack,
         empty_message: "No attributes"
       )
     ) do |c|

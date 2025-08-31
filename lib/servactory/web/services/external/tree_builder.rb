@@ -6,8 +6,8 @@ module Servactory
       module External
         # Builds a tree structure of service classes for UI display (gems only)
         class TreeBuilder
-          GEM_NAMES = Servactory::Web.configuration.gem_names
-          GEM_SERVICE_DIRECTORIES = Servactory::Web.configuration.gem_service_directories
+          GEM_NAMES = Servactory::Web::Engine.config.servactory_web.gem_names
+          GEM_SERVICE_DIRECTORIES = Servactory::Web::Engine.config.servactory_web.gem_service_directories
 
           def self.build(gem)
             new(gem).build

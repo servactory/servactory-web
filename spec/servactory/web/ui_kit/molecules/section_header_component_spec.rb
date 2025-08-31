@@ -2,7 +2,7 @@
 
 RSpec.describe Servactory::Web::UiKit::Molecules::SectionHeaderComponent, type: :component do
   it "renders the section title and icon", :aggregate_failures do
-    render_inline(described_class.new(title: "Inputs", icon_name: :inputs))
+    render_inline(described_class.new(title: "Inputs", icon_name: :stack))
     expect(page).to have_css("h3", text: "Inputs")
     expect(page).to have_css("svg.size-6.text-blue-600")
   end

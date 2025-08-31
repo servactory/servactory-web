@@ -4,9 +4,8 @@ module Servactory
   module Web
     module Services
       module Internal
-        # Строит дерево сервисов только из app/services
         class TreeBuilder
-          SERVICES_PATH = Servactory::Web.configuration.app_services_directory
+          SERVICES_PATH = Rails.root.join(Servactory::Web::Engine.config.servactory_web.app_services_directory)
 
           def self.build
             new.build
