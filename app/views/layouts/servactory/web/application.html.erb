@@ -11,13 +11,13 @@
   </head>
   <body class="min-h-screen flex flex-col bg-white">
     <%= render Servactory::Web::UiKit::Organisms::NavbarComponent.new(
-      app_name: Servactory::Web.configuration.app_name,
-      app_url: Servactory::Web.configuration.app_url,
-      documentation_url: Servactory::Web.configuration.documentation_url,
-      github_url: Servactory::Web.configuration.github_url
+      app_name: Servactory::Web::Engine.config.servactory_web.app_name,
+      app_url: Servactory::Web::Engine.config.servactory_web.app_url,
+      documentation_url: Servactory::Web::Engine.config.servactory_web.documentation_url,
+      github_url: Servactory::Web::Engine.config.servactory_web.github_url
     ) %>
     <%= render Servactory::Web::UiKit::Organisms::SubnavigationComponent.new(
-      gem_names: Servactory::Web.configuration.gem_names,
+      gem_names: Servactory::Web::Engine.config.servactory_web.gem_names,
       active_gem_name: params[:gem_name]
     ) %>
     <main class="flex-1 container mx-auto px-4 py-6" role="main">
@@ -25,10 +25,10 @@
     </main>
     <%= render Servactory::Web::UiKit::Organisms::FooterComponent.new(
       year: Date.current.year,
-      documentation_url: Servactory::Web.configuration.documentation_url,
-      github_url: Servactory::Web.configuration.github_url,
+      documentation_url: Servactory::Web::Engine.config.servactory_web.documentation_url,
+      github_url: Servactory::Web::Engine.config.servactory_web.github_url,
       version: Servactory::VERSION::STRING,
-      release_url: Servactory::Web.configuration.release_url_for(Servactory::VERSION::STRING)
+      release_url: Servactory::Web::Engine.config.servactory_web.release_url_for(Servactory::VERSION::STRING)
     ) %>
   </body>
 </html>

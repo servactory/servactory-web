@@ -5,7 +5,7 @@ module Servactory
     module Services
       module Internal
         class TreeBuilder
-          SERVICES_PATH = Servactory::Web.configuration.app_services_directory
+          SERVICES_PATH = Rails.root.join(Servactory::Web::Engine.config.servactory_web.app_services_directory)
 
           def self.build
             new.build
