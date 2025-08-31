@@ -27,8 +27,8 @@
       year: Date.current.year,
       documentation_url: Servactory::Web::Engine.config.servactory_web.documentation_url,
       github_url: Servactory::Web::Engine.config.servactory_web.github_url,
-      version: Servactory::VERSION::STRING,
-      release_url: Servactory::Web::Engine.config.servactory_web.release_url_for(Servactory::VERSION::STRING)
+      version: ::Servactory::VERSION::STRING,
+      release_url: Servactory::Web::Engine.config.servactory_web.release_url_for(::Servactory::VERSION::STRING)
     ) %>
   </body>
 </html>
